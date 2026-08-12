@@ -234,15 +234,8 @@
 
   /* redline annotation — used sparingly */
   .redline-mark{
-    position:relative;
     color:var(--redline);
     font-weight:600;
-  }
-  .redline-mark svg{
-    position:absolute;
-    left:-4%; top:38%;
-    width:108%; height:1.4em;
-    pointer-events:none;
   }
 
   .note{
@@ -393,7 +386,7 @@
 
   <div class="sheet-body">
     <div>
-      <p>A 4-person team designed, fabricated, and load-tested a precast, pretensioned concrete I-beam against PCI's national rule set — a <span class="redline-mark">17-ft simply supported span carrying 32 kips of total factored load<svg viewBox="0 0 300 30" preserveAspectRatio="none"><path d="M2,20 Q75,28 150,18 T298,22" fill="none" stroke="#A6402F" stroke-width="2"/></svg></span> without cracking under service load.</p>
+      <p>A 4-person team designed, fabricated, and load-tested a precast, pretensioned concrete I-beam against PCI's national rule set — a <span class="redline-mark">17-ft simply supported span carrying 32 kips of total factored load</span> without cracking under service load.</p>
       <p>I derived sectional properties and prestress losses to guide the initial design, then modeled deflections across unfactored, factored, cracking, and peak load stages to select rebar eccentricity and allowable stresses that avoided top-fiber tension at transfer — while also tracking cost and weight, since PCI scores both directly.</p>
       <div class="note">[Replace the placeholder box with a beam fabrication photo or a still from the load test. Fill in your actual predicted-vs-tested numbers below once your test summary form is finalized.]</div>
     </div>
@@ -427,7 +420,7 @@
   <div class="sheet-body">
     <div>
       <p>A browser-based Classical Laminate Theory solver — rebuilt from an original MATLAB tool into a single-file, dependency-free web app that runs entirely offline. It computes the full ABD stiffness matrix, ply-by-ply stress and strain recovery, and first-ply failure loads under Max Stress, Max Strain, and Hashin–Rotem criteria, with an iterative bisection search for independent per-component load scaling.</p>
-      <p>Because a solver is only as good as its numbers, I re-derived the ABD matrix independently in a separate line-by-line implementation and cross-checked it against the original MATLAB output — <span class="redline-mark">matching to 6 significant figures<svg viewBox="0 0 260 30" preserveAspectRatio="none"><ellipse cx="130" cy="15" rx="125" ry="11" fill="none" stroke="#A6402F" stroke-width="2"/></svg></span> across multiple layups, including thermal loading cases — then backed it with a Playwright regression suite covering both UI behavior and numerical correctness.</p>
+      <p>Because a solver is only as good as its numbers, I re-derived the ABD matrix independently in a separate line-by-line implementation and cross-checked it against the original MATLAB output — <span class="redline-mark">matching to 6 significant figures</span> across multiple layups, including thermal loading cases — then backed it with a Playwright regression suite covering both UI behavior and numerical correctness.</p>
       <div class="cta-row">
         <a class="launch-btn" href="https://YOUR-GITHUB-USERNAME.github.io/clasp/" target="_blank" rel="noopener">Launch C.L.A.S.P. →</a>
       </div>
