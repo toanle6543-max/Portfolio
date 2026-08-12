@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toan Le — Structural Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A4A;
+    --paper:#F7F5F0;
+    --steel:#3E5C86;
+    --concrete:#8B8B83;
+    --redline:#A6402F;
+    --ink:#14161A;
+    --hairline: rgba(20,22,26,0.14);
+    --sheet-max: 920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  a{ color:var(--steel); }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--redline);
+    outline-offset:3px;
+  }
+
+  /* ---------- Title block header ---------- */
+  .titleblock{
+    border-bottom:2px solid var(--navy);
+    background:var(--paper);
+    position:sticky; top:0; z-index:10;
+  }
+  .titleblock-inner{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:10px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .tb-cell{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--concrete);
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .tb-cell b{ color:var(--navy); font-weight:600; }
+  .tb-nav{ display:flex; gap:18px; }
+  .tb-nav a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--navy);
+    border-bottom:1px solid transparent;
+  }
+  .tb-nav a:hover{ border-bottom-color:var(--navy); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:64px 24px 48px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--redline);
+    margin-bottom:14px;
+  }
+  .hero h1{ font-size:clamp(2.2rem, 5vw, 3.4rem); color:var(--navy); }
+  .hero .role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    color:var(--steel);
+    margin-top:10px;
+  }
+  .hero p.lede{
+    max-width:56ch;
+    font-size:1.05rem;
+    color:#33363c;
+    margin-top:20px;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:18px 28px;
+    margin-top:28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .contact-row a{ color:var(--navy); text-decoration:none; border-bottom:1px solid var(--hairline); }
+  .contact-row a:hover{ border-bottom-color:var(--navy); }
+  .resume-btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:10px 20px;
+    background:var(--navy);
+    color:var(--paper) !important;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border:1px solid var(--navy);
+  }
+  .resume-btn:hover{ background:var(--steel); border-color:var(--steel); }
+
+  /* ---------- Moment diagram (hero signature) ---------- */
+  .diagram-wrap{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:0 24px 8px;
+  }
+  .diagram-wrap svg{ width:100%; height:auto; display:block; }
+  #moment-curve{
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: draw 1.6s ease-out 0.3s forwards;
+  }
+  @media (prefers-reduced-motion: reduce){
+    #moment-curve{ animation:none; stroke-dashoffset:0; }
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ---------- Dimension-line divider ---------- */
+  .dimline{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--concrete);
+  }
+  .dimline .tick{ font-size:12px; }
+  .dimline .rule{
+    flex:1;
+    height:1px;
+    background:
+      repeating-linear-gradient(to right, var(--concrete) 0 1px, transparent 1px 8px);
+  }
+
+  /* ---------- Sheet sections ---------- */
+  .sheet{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:56px 24px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .sheet-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .sheet-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--redline);
+    border:1px solid var(--redline);
+    padding:2px 8px;
+  }
+  .sheet-head h2{ font-size:1.6rem; color:var(--navy); }
+  .sheet-sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--concrete);
+    margin-top:2px;
+  }
+
+  .sheet-body{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap:36px;
+    margin-top:24px;
+  }
+  @media (max-width:760px){
+    .sheet-body{ grid-template-columns:1fr; }
+  }
+
+  .placeholder-img{
+    border:1px dashed var(--concrete);
+    background:repeating-linear-gradient(45deg, rgba(139,139,131,0.06) 0 10px, transparent 10px 20px);
+    color:var(--concrete);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-align:center;
+    padding:40px 16px;
+    line-height:1.5;
+  }
+  .placeholder-img + .placeholder-img{ margin-top:14px; }
+
+  .spec-table{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .spec-table tr{ border-bottom:1px solid var(--hairline); }
+  .spec-table tr:last-child{ border-bottom:none; }
+  .spec-table td{ padding:9px 4px; vertical-align:top; }
+  .spec-table td:first-child{
+    color:var(--concrete);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    width:38%;
+    white-space:nowrap;
+  }
+  .spec-table td:last-child{ color:var(--ink); }
+
+  /* redline annotation — used sparingly */
+  .redline-mark{
+    position:relative;
+    color:var(--redline);
+    font-weight:600;
+  }
+  .redline-mark svg{
+    position:absolute;
+    left:-4%; top:38%;
+    width:108%; height:1.4em;
+    pointer-events:none;
+  }
+
+  .note{
+    margin-top:16px;
+    font-size:0.85rem;
+    color:var(--concrete);
+    font-style:italic;
+  }
+
+  .cta-row{ margin-top:18px; }
+  .launch-btn{
+    display:inline-block;
+    padding:9px 18px;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .launch-btn:hover{ background:var(--navy); color:var(--paper); }
+
+  /* ---------- Legend / skills ---------- */
+  .legend{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:56px 24px 72px;
+  }
+  .legend h2{ color:var(--navy); font-size:1.4rem; margin-bottom:22px; }
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  @media (max-width:760px){ .legend-grid{ grid-template-columns:1fr; } }
+  .legend-key{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--redline);
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:6px;
+    margin-bottom:10px;
+  }
+  .legend-list{ font-size:0.92rem; color:#33363c; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    max-width:var(--sheet-max);
+    margin:0 auto;
+    padding:28px 24px 48px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--concrete);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  footer a{ color:var(--concrete); }
+</style>
+</head>
+<body>
+
+<div class="titleblock">
+  <div class="titleblock-inner">
+    <div class="tb-cell"><b>Toan Le</b> — Structural Portfolio</div>
+    <div class="tb-nav">
+      <a href="#s1">S1.0</a>
+      <a href="#s2">S2.0</a>
+      <a href="#s3">S3.0</a>
+      <a href="#legend">Skills</a>
+    </div>
+    <div class="tb-cell">Scale: NTS &nbsp;|&nbsp; Rev: A</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="eyebrow">Structural Drawing Set — Portfolio</div>
+  <h1>Toan Le</h1>
+  <div class="role">B.S. Structural Engineering — University of California, San Diego, 2026</div>
+  <p class="lede">I design load paths, then prove they hold — in reinforced concrete, prestressed beams, and code.</p>
+  <div class="contact-row">
+    <a href="mailto:toanle6543@gmail.com">toanle6543@gmail.com</a>
+    <a href="https://www.linkedin.com/in/toan-minh-le" target="_blank" rel="noopener">linkedin.com/in/toan-minh-le</a>
+    <span>San Diego, CA</span>
+  </div>
+  <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Résumé (PDF) ↓</a>
+</section>
+
+<div class="diagram-wrap" aria-hidden="true">
+  <svg viewBox="0 0 872 140" xmlns="http://www.w3.org/2000/svg">
+    <line x1="20" y1="40" x2="852" y2="40" stroke="#8B8B83" stroke-width="1"/>
+    <path id="moment-curve" d="M 20 40 Q 436 130 852 40" fill="none" stroke="#1B2A4A" stroke-width="2.5"/>
+    <line x1="20" y1="34" x2="20" y2="46" stroke="#8B8B83" stroke-width="1"/>
+    <line x1="852" y1="34" x2="852" y2="46" stroke="#8B8B83" stroke-width="1"/>
+    <text x="20" y="26" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B8B83">R1</text>
+    <text x="838" y="26" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B8B83">R2</text>
+    <text x="416" y="128" font-family="IBM Plex Mono, monospace" font-size="12" fill="#3E5C86">M(x)</text>
+  </svg>
+</div>
+
+<div class="dimline"><span class="tick">⊢</span><div class="rule"></div><span class="tick mono">01</span><div class="rule"></div><span class="tick">⊣</span></div>
+
+<!-- ===================== S1.0 CAPSTONE ===================== -->
+<section class="sheet" id="s1">
+  <div class="sheet-head">
+    <span class="sheet-no">S1.0</span>
+    <div>
+      <h2>Design of Civil Structures — Capstone I &amp; II</h2>
+      <div class="sheet-sub">Team Structural Design Project · Dec 2025 – Jun 2026 · San Diego, CA</div>
+    </div>
+  </div>
+
+  <div class="sheet-body">
+    <div>
+      <p>An 8-story building, designed ground-up with a 3–4 person team over two quarters: gravity system, lateral system, and the connections that tie them together. I owned the reinforced concrete beam-column connection design, the two-way slab, and a cantilever retaining wall with combined spread footing — each produced as construction-quality drawings in SolidWorks and backed by hand calculations submitted in biweekly professional reports.</p>
+      <p>Governing loads and effective seismic weight were carried through to the lateral system, supporting design of a special reinforced concrete shear wall alongside buckling-restrained braced frames (BRBFs) and special moment frames (SMFs) elsewhere in the building.</p>
+      <div class="note">[Replace the two boxes at right with a floor plan render and a beam-column connection detail from your drawing set.]</div>
+    </div>
+    <div>
+      <div class="placeholder-img">DRAWING — replace with<br>floor plan / 3D structural render</div>
+      <div class="placeholder-img">DETAIL — replace with<br>beam-column connection or retaining wall section</div>
+    </div>
+  </div>
+
+  <table class="spec-table" style="margin-top:28px;">
+    <tr><td>Building type</td><td>8-story, mixed lateral system</td></tr>
+    <tr><td>Lateral system</td><td>BRBF + SMF + special RC shear wall</td></tr>
+    <tr><td>Governing codes</td><td>ACI 318, ASCE 7, AISC 360</td></tr>
+    <tr><td>Personal scope</td><td>RC beam-column connections, two-way slab, cantilever retaining wall + combined footing</td></tr>
+  </table>
+</section>
+
+<div class="dimline"><span class="tick">⊢</span><div class="rule"></div><span class="tick mono">02</span><div class="rule"></div><span class="tick">⊣</span></div>
+
+<!-- ===================== S2.0 PCI BEAM ===================== -->
+<section class="sheet" id="s2">
+  <div class="sheet-head">
+    <span class="sheet-no">S2.0</span>
+    <div>
+      <h2>PCI Big Beam Competition</h2>
+      <div class="sheet-sub">National Precast/Prestressed Concrete Design Competition · Mar – Jun 2026</div>
+    </div>
+  </div>
+
+  <div class="sheet-body">
+    <div>
+      <p>A 4-person team designed, fabricated, and load-tested a precast, pretensioned concrete I-beam against PCI's national rule set — a <span class="redline-mark">17-ft simply supported span carrying 32 kips of total factored load<svg viewBox="0 0 300 30" preserveAspectRatio="none"><path d="M2,20 Q75,28 150,18 T298,22" fill="none" stroke="#A6402F" stroke-width="2"/></svg></span> without cracking under service load.</p>
+      <p>I derived sectional properties and prestress losses to guide the initial design, then modeled deflections across unfactored, factored, cracking, and peak load stages to select rebar eccentricity and allowable stresses that avoided top-fiber tension at transfer — while also tracking cost and weight, since PCI scores both directly.</p>
+      <div class="note">[Replace the placeholder box with a beam fabrication photo or a still from the load test. Fill in your actual predicted-vs-tested numbers below once your test summary form is finalized.]</div>
+    </div>
+    <div>
+      <div class="placeholder-img">PHOTO — replace with<br>beam fabrication or load-test image</div>
+    </div>
+  </div>
+
+  <table class="spec-table" style="margin-top:28px;">
+    <tr><td>Span</td><td>17 ft, simply supported</td></tr>
+    <tr><td>Service load</td><td>2 × 10 kip unfactored point loads</td></tr>
+    <tr><td>Factored load</td><td>32 kip total</td></tr>
+    <tr><td>Governing codes</td><td>ACI 318-19, PCI Design Handbook (8th ed.)</td></tr>
+    <tr><td>Judged on</td><td>Design accuracy, cost, weight, deflection, report quality</td></tr>
+    <tr><td>Result</td><td>[add predicted vs. tested load / deflection accuracy once available]</td></tr>
+  </table>
+</section>
+
+<div class="dimline"><span class="tick">⊢</span><div class="rule"></div><span class="tick mono">03</span><div class="rule"></div><span class="tick">⊣</span></div>
+
+<!-- ===================== S3.0 CLASP ===================== -->
+<section class="sheet" id="s3">
+  <div class="sheet-head">
+    <span class="sheet-no">S3.0</span>
+    <div>
+      <h2>C.L.A.S.P.</h2>
+      <div class="sheet-sub">Classical Lamination Analytical Solver Program · Independent Software Project · Dec 2025 – Jul 2026</div>
+    </div>
+  </div>
+
+  <div class="sheet-body">
+    <div>
+      <p>A browser-based Classical Laminate Theory solver — rebuilt from an original MATLAB tool into a single-file, dependency-free web app that runs entirely offline. It computes the full ABD stiffness matrix, ply-by-ply stress and strain recovery, and first-ply failure loads under Max Stress, Max Strain, and Hashin–Rotem criteria, with an iterative bisection search for independent per-component load scaling.</p>
+      <p>Because a solver is only as good as its numbers, I re-derived the ABD matrix independently in a separate line-by-line implementation and cross-checked it against the original MATLAB output — <span class="redline-mark">matching to 6 significant figures<svg viewBox="0 0 260 30" preserveAspectRatio="none"><ellipse cx="130" cy="15" rx="125" ry="11" fill="none" stroke="#A6402F" stroke-width="2"/></svg></span> across multiple layups, including thermal loading cases — then backed it with a Playwright regression suite covering both UI behavior and numerical correctness.</p>
+      <div class="cta-row">
+        <a class="launch-btn" href="https://YOUR-GITHUB-USERNAME.github.io/clasp/" target="_blank" rel="noopener">Launch C.L.A.S.P. →</a>
+      </div>
+      <div class="note">[Swap the link above for your live GitHub Pages URL. Replace the box at right with a screenshot of the app.]</div>
+    </div>
+    <div>
+      <div class="placeholder-img">SCREENSHOT — replace with<br>C.L.A.S.P. app interface</div>
+    </div>
+  </div>
+
+  <table class="spec-table" style="margin-top:28px;">
+    <tr><td>Method</td><td>Classical Laminate Theory — ABD stiffness matrix</td></tr>
+    <tr><td>Failure criteria</td><td>Max Stress, Max Strain, Hashin–Rotem (quadratic)</td></tr>
+    <tr><td>Validation</td><td>Independent re-derivation, matched to 6 sig. figs vs. MATLAB</td></tr>
+    <tr><td>Testing</td><td>Playwright automated regression suite</td></tr>
+    <tr><td>Stack</td><td>Vanilla JavaScript / HTML / CSS — zero dependencies</td></tr>
+    <tr><td>Deployment</td><td>Static, offline-capable — GitHub Pages</td></tr>
+  </table>
+</section>
+
+<!-- ===================== LEGEND / SKILLS ===================== -->
+<section class="legend" id="legend">
+  <h2>Legend</h2>
+  <div class="legend-grid">
+    <div>
+      <div class="legend-key">Structural Analysis &amp; Design</div>
+      <div class="legend-list">Finite Element Analysis, Hand Calculations, Load Path Analysis, Structural Modeling (2D/3D frames, trusses, shells), Material Behavior</div>
+    </div>
+    <div>
+      <div class="legend-key">Software</div>
+      <div class="legend-list">AutoCAD, SolidWorks, ABAQUS, MATLAB, Python, Excel</div>
+    </div>
+    <div>
+      <div class="legend-key">Languages</div>
+      <div class="legend-list">English, Vietnamese</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Sheet 1 of 1 &nbsp;|&nbsp; Scale: NTS &nbsp;|&nbsp; Rev: A</div>
+  <div><a href="mailto:toanle6543@gmail.com">toanle6543@gmail.com</a></div>
+</footer>
+
+</body>
+</html>
