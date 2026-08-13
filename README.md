@@ -10,7 +10,7 @@ Portfolio site covering structural engineering coursework and independent projec
 ## Structure
 ```
 index.html      — main portfolio page
-resume.pdf       — downloadable résumé
+resume.pdf       — downloadable resume
 images/           — project drawings, details, and screenshots
 ```
 
