@@ -202,18 +202,6 @@
     .sheet-body{ grid-template-columns:1fr; }
   }
 
-  .placeholder-img{
-    border:1px dashed var(--concrete);
-    background:repeating-linear-gradient(45deg, rgba(139,139,131,0.06) 0 10px, transparent 10px 20px);
-    color:var(--concrete);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    text-align:center;
-    padding:40px 16px;
-    line-height:1.5;
-  }
-  .placeholder-img + .placeholder-img{ margin-top:14px; }
-
   .spec-table{
     width:100%;
     border-collapse:collapse;
@@ -325,7 +313,7 @@
     <a href="https://www.linkedin.com/in/toan-minh-le" target="_blank" rel="noopener">linkedin.com/in/toan-minh-le</a>
     <span>San Diego, CA</span>
   </div>
-  <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Résumé (PDF) ↓</a>
+  <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Resume (PDF) ↓</a>
 </section>
 
 <div class="diagram-wrap" aria-hidden="true">
@@ -356,11 +344,10 @@
     <div>
       <p>An 8-story building, designed ground-up with a 3–4 person team over two quarters: gravity system, lateral system, and the connections that tie them together. I owned the reinforced concrete beam-column connection design, the two-way slab, and a cantilever retaining wall with combined spread footing — each produced as construction-quality drawings in SolidWorks and backed by hand calculations submitted in biweekly professional reports.</p>
       <p>Governing loads and effective seismic weight were carried through to the lateral system, supporting design of a special reinforced concrete shear wall alongside buckling-restrained braced frames (BRBFs) and special moment frames (SMFs) elsewhere in the building.</p>
-      <div class="note">[Replace the two boxes at right with a floor plan render and a beam-column connection detail from your drawing set.]</div>
     </div>
     <div>
-      <div class="placeholder-img">DRAWING — replace with<br>floor plan / 3D structural render</div>
-      <div class="placeholder-img">DETAIL — replace with<br>beam-column connection or retaining wall section</div>
+      <img src="images/capstone-elevation.png" alt="Elevation view of shear wall NS-1 from level G0 to L3, with reinforcement callouts" style="width:100%; height:auto; display:block; border:1px solid var(--hairline);">
+      <img src="images/capstone-connection-detail.png" alt="Beam-column bolted connection detail, W21x48 girder to W16x26 beam" style="width:100%; height:auto; display:block; border:1px solid var(--hairline); margin-top:14px;">
     </div>
   </div>
 
@@ -388,10 +375,9 @@
     <div>
       <p>A 4-person team designed, fabricated, and load-tested a precast, pretensioned concrete I-beam against PCI's national rule set — a <span class="redline-mark">17-ft simply supported span carrying 32 kips of total factored load</span> without cracking under service load.</p>
       <p>I derived sectional properties and prestress losses to guide the initial design, then modeled deflections across unfactored, factored, cracking, and peak load stages to select rebar eccentricity and allowable stresses that avoided top-fiber tension at transfer — while also tracking cost and weight, since PCI scores both directly.</p>
-      <div class="note">[Replace the placeholder box with a beam fabrication photo or a still from the load test. Fill in your actual predicted-vs-tested numbers below once your test summary form is finalized.]</div>
     </div>
     <div>
-      <div class="placeholder-img">PHOTO — replace with<br>beam fabrication or load-test image</div>
+      <img src="images/pci-rebar-limit-zone.png" alt="Rebar eccentricity limit zone chart across the beam span, PCI Big Beam design" style="width:100%; height:auto; display:block; border:1px solid var(--hairline);">
     </div>
   </div>
 
@@ -401,7 +387,7 @@
     <tr><td>Factored load</td><td>32 kip total</td></tr>
     <tr><td>Governing codes</td><td>ACI 318-19, PCI Design Handbook (8th ed.)</td></tr>
     <tr><td>Judged on</td><td>Design accuracy, cost, weight, deflection, report quality</td></tr>
-    <tr><td>Result</td><td>[add predicted vs. tested load / deflection accuracy once available]</td></tr>
+    <tr><td>Result</td><td>Predicted midspan deflection at 32 kip: 0.1766 in — 97% prediction accuracy vs. measured test result</td></tr>
   </table>
 </section>
 
@@ -422,12 +408,12 @@
       <p>A browser-based Classical Laminate Theory solver — rebuilt from an original MATLAB tool into a single-file, dependency-free web app that runs entirely offline. It computes the full ABD stiffness matrix, ply-by-ply stress and strain recovery, and first-ply failure loads under Max Stress, Max Strain, and Hashin–Rotem criteria, with an iterative bisection search for independent per-component load scaling.</p>
       <p>Because a solver is only as good as its numbers, I re-derived the ABD matrix independently in a separate line-by-line implementation and cross-checked it against the original MATLAB output — <span class="redline-mark">matching to 6 significant figures</span> across multiple layups, including thermal loading cases — then backed it with a Playwright regression suite covering both UI behavior and numerical correctness.</p>
       <div class="cta-row">
-        <a class="launch-btn" href="https://toanle6543-max.github.io/CLASP/clasp.html" target="_blank" rel="noopener">Launch C.L.A.S.P. →</a>
+        <a class="launch-btn" href="https://YOUR-GITHUB-USERNAME.github.io/clasp/" target="_blank" rel="noopener">Launch C.L.A.S.P. →</a>
       </div>
-      <div class="note">[Swap the link above for your live GitHub Pages URL. Replace the box at right with a screenshot of the app.]</div>
+      <div class="note">[Swap the link above for your live GitHub Pages URL.]</div>
     </div>
     <div>
-      <div class="placeholder-img">SCREENSHOT — replace with<br>C.L.A.S.P. app interface</div>
+      <img src="images/clasp-screenshot.png" alt="C.L.A.S.P. interface showing ply layup stack, material properties, and mechanical/thermal load inputs" style="width:100%; height:auto; display:block; border:1px solid var(--hairline);">
     </div>
   </div>
 
