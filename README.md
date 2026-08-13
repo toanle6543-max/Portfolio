@@ -1,6 +1,6 @@
 # Toan Le — Structural Engineering Portfolio
 
-** Live site: [toanle6543-max.github.io/Portfolio](https://toanle6543-max.github.io/Portfolio/)**
+**Live site: [toanle6543-max.github.io/Portfolio](https://toanle6543-max.github.io/Portfolio/)**
 
 Portfolio site covering structural engineering coursework and independent projects:
 - Design of Civil Structures Capstone I & II
